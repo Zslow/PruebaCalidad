@@ -6,4 +6,4 @@ script:
          "mvn -B test cobertura:cobertura"
 
 after_success:
-  curl -s https://codecov.io/bash
+  bash <(curl -s https://codecov.io/bash)
