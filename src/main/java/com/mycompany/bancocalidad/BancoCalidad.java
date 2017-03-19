@@ -16,6 +16,8 @@ public class BancoCalidad {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Cliente pepe = new Cliente("Pepe","García","mi calle ");
+        Cuenta cuentaPepe = new Cuenta(pepe,50,"1234","1");
     }
     
 }
