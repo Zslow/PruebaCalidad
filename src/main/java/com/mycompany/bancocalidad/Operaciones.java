@@ -10,9 +10,6 @@ package com.mycompany.bancocalidad;
  * @author jesus
  */
 public interface Operaciones {
-    public boolean meterDinero(String ping, double saldo);
-    public boolean extraerDinero(String ping, double saldo);
-    public boolean imprimirOperaciones(String ping);
-    public boolean realizarTransferencia(String ping, Cuenta cuenta, double saldo);
-    public boolean verSaldo(String ping);
+   public boolean pinCorrecto(String pin);
+   public double sacarDinero(double dinero);
 }

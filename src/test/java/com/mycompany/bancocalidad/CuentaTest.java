@@ -5,8 +5,6 @@
  */
 package com.mycompany.bancocalidad;
 
-import com.mycompany.bancocalidad.Cliente;
-import com.mycompany.bancocalidad.Cuenta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,7 +18,7 @@ import static org.junit.Assert.*;
  */
 public class CuentaTest {
     
-    private Cliente cliente = new Cliente("jesus", "Dapena", "direccion 1");
+    private Cliente cliente = new Cliente("Jesus", "Dapena", "Gomez");
     
     public CuentaTest() {
     }
@@ -41,75 +39,31 @@ public class CuentaTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of meterDinero method, of class Cuenta.
-     */
-    @Test
-    public void testMeterDinero() {
-        System.out.println("meterDinero");
-        String pin = "1234";
-        double saldo = 50.0;
-        Cuenta c = new Cuenta(cliente, saldo, "1235", "asdfg");
-        boolean expResult = false;
-        boolean result = c.meterDinero(pin, 100);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of extraerDinero method, of class Cuenta.
-     */
-    @Test
-    public void testExtraerDinero() {
-        System.out.println("extraerDinero");
-        String pin = "1234";
-        double saldo = 100.0;
-        Cuenta c = new Cuenta(cliente, saldo, "1234", "asdfg");
-        boolean expResult = false;
-        boolean result = c.extraerDinero(pin, 150);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of imprimirOperaciones method, of class Cuenta.
-     */
-    @Test
-    public void testImprimirOperaciones() {
-         System.out.println("extraerDinero");
-        String pin = "1234";
-        double saldo = 100.0;
-        Cuenta c = new Cuenta(cliente, saldo, "1234", "asdfg");
-        boolean expResult = true;
-        boolean result = c.imprimirOperaciones(pin);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of verSaldo method, of class Cuenta.
-     */
-    @Test
-    public void testVerSaldo() {
-         System.out.println("extraerDinero");
-        String pin = "1234";
-        double saldo = 100.0;
-        Cuenta c = new Cuenta(cliente, saldo, "1234", "asdfg");
-        boolean expResult = true;
-        boolean result = c.imprimirOperaciones(pin);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of realizarTransferencia method, of class Cuenta.
-     */
-    @Test
-    public void testRealizarTransferencia() {
-        System.out.println("extraerDinero");
-        String pin = "1234";
-        double saldo = 100.0;
-        Cuenta c = new Cuenta(cliente, saldo, "1234", "asdfg");
-        Cuenta c2 = new Cuenta(cliente, 500, "1234", "prueba");
-        boolean expResult = false;
-        boolean result = c.realizarTransferencia(pin, c2, 200);
-        assertEquals(expResult, result);
-    }
     
+    @Test
+    public void testSacarDinero() {
+        System.out.println("sacarDinero 1");
+        double dinero = 100.0;
+        Cuenta c = new Cuenta(cliente, 200, "1234", "112344");
+        boolean expResult = false;
+        boolean result = c.pinCorrecto("12334");
+        assertEquals(expResult, result);
+    }
+     @Test
+    public void testSacarDinero2() {
+        System.out.println("sacarDinero 2");
+        double dinero = 100.0;
+        Cuenta c = new Cuenta(cliente, 50, "1234", "112344");
+        double expResult = 0;
+        double result = c.sacarDinero(dinero);
+        assertEquals(expResult, result, 0.0);
+    }
+     @Test
+    public void testSacarDinero3() {
+        System.out.println("sacarDinero 3");
+        Cuenta c = new Cuenta(cliente, 200, "1234", "112344");
+        double expResult = 100;
+        double result = c.sacarDinero(100);
+        assertEquals(expResult, result, 0.0);
+    }
 }

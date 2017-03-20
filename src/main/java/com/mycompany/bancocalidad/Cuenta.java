@@ -58,58 +58,21 @@ public class Cuenta implements Operaciones {
     }
 
     @Override
-    public boolean meterDinero(String pin, double saldo) {
-        if (pin.equals(this.pin)) {
-            this.saldo = this.saldo + saldo;
+    public boolean pinCorrecto(String pin) {
+        if (this.pin.equals(pin)){
             return true;
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    public boolean extraerDinero(String pin, double saldo) {
-       if (pin.equals(this.pin)) {
-        this.saldo = this.saldo - saldo;
-        if (this.saldo < saldo) {
-            return false;
-        } else {
-            return true;
-        }}else{
-           return false;
-       }
-    }
-
-    @Override
-    public boolean imprimirOperaciones(String pin) {
-        if (pin.equals(this.pin)) {
-        System.out.println("Queda por hacer");
-        return true;
         }else{
             return false;
         }
     }
 
     @Override
-    public boolean verSaldo(String pin) {
-        if (pin.equals(this.pin)) {
-            System.out.println("Saldo: "+this.saldo);
-            return true;}else{
-            return false;
-        }
-    }
-
-    @Override
-    public boolean realizarTransferencia(String pin, Cuenta cuenta, double saldo) {
-        if (pin.equals(this.pin)) {
-        if (this.saldo < saldo) {
-            return false;
-        } else {
-            cuenta.setSaldo(cuenta.getSaldo()+saldo);
-            this.saldo = this.saldo - saldo;
-            return true;
-        }}else{
-            return false;
+    public double sacarDinero(double dinero) {
+        if (this.saldo < dinero){
+            return 0;
+        }else{
+            this.saldo = this.saldo - dinero;
+            return dinero;
         }
     }
 
