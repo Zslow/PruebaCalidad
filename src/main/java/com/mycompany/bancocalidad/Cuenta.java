@@ -68,6 +68,11 @@ public class Cuenta implements Operaciones {
 
     @Override
     public double sacarDinero(double dinero) {
+        /*
+        if (dinero <= 0 || this.saldo < dinero){
+            return 0;
+        }
+        */
         if (this.saldo < dinero){
             return 0;
         }else{
