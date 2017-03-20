@@ -66,4 +66,12 @@ public class CuentaTest {
         double result = c.sacarDinero(100);
         assertEquals(expResult, result, 0.0);
     }
+    @Test
+    public void testSacarDinero4() {
+        System.out.println("sacarDinero 3");
+        Cuenta c = new Cuenta(cliente, 200, "1234", "112344");
+        double expResult = 0;
+        double result = c.sacarDinero(-100);
+        assertEquals(expResult, result, 0.0);
+    }
 }
