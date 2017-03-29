@@ -76,4 +76,70 @@ public class CuentaTest {
         assertEquals(expResult, result, 0.0);
     }
     */
+    
+    
+    
+    @Test
+    public void testGetCliente() {
+        System.out.println("getCliente");
+
+        Cliente expResult = new Cliente("Pepe","García","mi calle ");
+        Cuenta instance  = new Cuenta(expResult,50,"1234","1");
+        Cliente result = instance.getCliente();
+        assertEquals(expResult, result);
+    
+    }
+
+
+    
+    @Test
+    public void testGetSaldo() {
+        System.out.println("getSaldo");
+        
+        
+        Cuenta instance  = new Cuenta(cliente,50,"1234","1");
+        double expResult = 50.0;
+        double result = instance.getSaldo();
+        assertEquals(expResult, result, 0.0);
+
+    }
+
+    
+    @Test
+    public void testGetPin() {
+        System.out.println("getPin");
+        
+        Cuenta instance  = new Cuenta(cliente,50,"1234","1");
+        String expResult = "1234";
+        String result = instance.getPin();
+        assertEquals(expResult, result);
+
+    }
+
+
+    @Test
+    public void testGetNumCuenta() {
+        System.out.println("getNumCuenta");
+        
+        Cuenta instance  = new Cuenta(cliente,50,"1234","1");
+        String expResult = "1";
+        String result = instance.getNumCuenta();
+        assertEquals(expResult, result);
+        
+    }
+
+
+
+    @Test
+    public void testPinCorrecto() {
+        System.out.println("pinCorrecto");
+        String pin = "1234";
+        Cuenta instance  = new Cuenta(cliente,50,"1234","1");
+        boolean expResult = true;
+        boolean result = instance.pinCorrecto(pin);
+        assertEquals(expResult, result);
+        
+    }
+    
+    
 }
